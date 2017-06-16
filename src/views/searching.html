@@ -1,0 +1,50 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Searching</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <form method="POST" class="form-inline">
+                    <div class="form-group">
+                        <label for="user">User:</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="user" placeholder="user" name="user">
+                            <div class="input-group-addon">github.com</div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+        <?php if(!empty($repos)):?>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Stars</th>
+                            <th>Language</th>
+                            <th>Created at</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach($repos as $repo): ?>
+                        <tr>
+                            <td><a href="<?= $repo->url?>"><?= htmlspecialchars($repo->name,ENT_QUOTES); ?></a></td>
+                            <td><?= htmlspecialchars($repo->description,ENT_QUOTES); ?></td>
+                            <td><?= htmlspecialchars($repo->stargazers_count,ENT_QUOTES); ?></td>
+                            <td><?= htmlspecialchars($repo->language,ENT_QUOTES); ?></td>
+                            <td><?= htmlspecialchars($repo->created_at,ENT_QUOTES); ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <?php endif;?>
+    </div>
+</div>
+

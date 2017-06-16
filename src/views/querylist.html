@@ -1,0 +1,44 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Query list</h3>
+    </div>
+    <div class="panel-body">
+        <?php if(!empty($queryList)):?>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Query</th>
+                    <th>IP</th>
+                    <th>Created at</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach($queryList as $query): ?>
+                <tr>
+                    <td><?= htmlspecialchars($query->id,ENT_QUOTES); ?></a></td>
+                    <td><?= htmlspecialchars($query->query,ENT_QUOTES); ?></a></td>
+                    <td><?= htmlspecialchars($query->ip,ENT_QUOTES); ?></a></td>
+                    <td><?= htmlspecialchars($query->created_at,ENT_QUOTES); ?></a></td>
+                </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+            <nav>
+                <ul class="pager">
+                    <?php if(!empty($pagePrev)):?>
+                    <li>
+                        <a href="?page=querylist&p=<?= htmlspecialchars($pagePrev,ENT_QUOTES); ?>">« Prev</a>
+                    </li>
+                    <?php endif;?>
+                    <?php if(!empty($pageNext)):?>
+                    <li>
+                        <a href="?page=querylist&p=<?= htmlspecialchars($pageNext,ENT_QUOTES); ?>"> Next »</a>
+                    </li>
+                    <?php endif;?>
+                </ul>
+            </nav>
+        <?php endif;?>
+    </div>
+</div>
+

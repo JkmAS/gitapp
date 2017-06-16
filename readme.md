@@ -1,4 +1,4 @@
-Ilustracka
+GitApp
 =========================
 ![stable](https://img.shields.io/badge/stable-0.0.1-blue.svg) 
 
